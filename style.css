@@ -148,6 +148,10 @@ footer p{
 
 
 @media screen and (max-width : 800px) {
+    body{
+        background-color: red;
+    }
+
     .addNote .tit{
         margin: 15px;
         height: 40px;

@@ -5,10 +5,12 @@ console.log("Created by pratik");
 let addButton = document.getElementById("add");
 addButton.addEventListener('click', function(event){
     event.preventDefault();
-    let title = document.getElementById("title").value;
-    let disc = document.getElementById("disc").value;
-    if((title.trim() != "") && (disc.trim() != "")){
+    let title = document.getElementById("title");
+    let disc = document.getElementById("disc");
+    if((title.value.trim() != "") && (disc.value.trim() != "")){
         addTxt(title, disc);
+        title.value = "";
+        disc.value = "";
     }
     else{
         alert('Write something');
@@ -26,8 +28,8 @@ function addTxt(title, disc){
     
     cards.innerHTML +=  `
     <div class="card">
-    <div class="title"><h3 id="noteTitle">${title}</h3></div><hr>
-    <div class="discription"><p id="noteDisc"> ${disc}</p></div>
+    <div class="title"><h3 id="noteTitle">${title.value}</h3></div><hr>
+    <div class="discription"><p id="noteDisc"> ${disc.value}</p></div>
     
     <button id="deleteButton" class="delBtn">Delete</button>
     </div>
