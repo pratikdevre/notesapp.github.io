@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Account Deactivation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 40px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    textarea, input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c9302c;
+    }
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #dff0d8;
+      color: #3c763d;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Deactivate Account</h2>
+    <form id="deactivationForm">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="reason">Reason for Deactivation</label>
+      <select id="reason" name="reason" required>
+        <option value="">-- Select Reason --</option>
+        <option value="privacy">Privacy concerns</option>
+        <option value="not_useful">Not useful</option>
+        <option value="too_many_emails">Too many emails</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="comments">Additional Comments</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+
+      <label>
+        <input type="checkbox" name="confirm" required />
+        I understand that my account will be permanently deactivated.
+      </label>
+
+      <button type="submit">Deactivate Account</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      Your account will be deactivated in 24 hours!
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('deactivationForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent actual form submission
+      document.getElementById('successMessage').style.display = 'block';
+      this.reset(); // Optional: reset form fields
+    });
+  </script>
+</body>
+</html>
